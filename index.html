@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Word Connect</title>
-    <link rel="stylesheet" href="styling.css">
+    <!-- <link rel="stylesheet" href="styling.css"> -->
 </head>
 <body>
     <h1>Word Connect</h1>
-    <div id="left-word-box"><p id="left-word">Color<p></div>
-    <div id="answer-box"><input type="text"></input></div>
-    <div id="right-word-box"><p id="right-word">Strut<p></div>
+    <div id="word-chain">
+        <div id="left-word-box"><p id="left-word">Color<p></div>
+        <div id="answer-box"><input type="text"></input></div>
+        <div id="right-word-box"><p id="right-word">Strut<p></div>
+    </div>
+    <div id="test-button-block"> 
+        <button id="test-button" name="test-button" onclick="test()" type="button">Test</button>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="page-functions.js"></script>
 </html>
