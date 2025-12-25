@@ -16,7 +16,7 @@ function loadGraph() {
 
 function loadPuzzles() {
    return new Promise((resolve, reject) => {
-    $.getJSON("resources/puzzles.json", function(json) {
+    $.getJSON("https://media.githubusercontent.com/media/gastrolith/Word-Connect/main/resources/puzzles.json", function(json) {
         puzzles = json;
         console.log("The puzzles have been loaded in.");
         currPuzzle = puzzles.length;
