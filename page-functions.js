@@ -5,7 +5,7 @@ let currDifficulty;
 
 function loadGraph() {
   return new Promise((resolve, reject) => {
-    $.getJSON("resources/relation_graph_200K.json", function(json) {
+    $.getJSON("https://github.com/gastrolith/Word-Connect/raw/main/resources/relation_graph_200K.json", function(json) {
         graph = json;
         console.log("The graph has been loaded in.");
 
