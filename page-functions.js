@@ -5,7 +5,7 @@ let currDifficulty;
 
 function loadGraph() {
   return new Promise((resolve, reject) => {
-    $.getJSON("resources/relation_graph_smaller.json", function(json) {
+    $.getJSON("resources/relation_graph_200K.json", function(json) {
         graph = json;
         console.log("The graph has been loaded in.");
 
@@ -23,6 +23,7 @@ function loadPuzzles() {
         currDifficulty = "easy";
 
         displayPuzzle();
+        activate_listeners();
 
         resolve();
     });
@@ -30,18 +31,18 @@ function loadPuzzles() {
 }
 
 loadGraph()
-  .then(function() {
+.then(function() {
     return loadPuzzles();  // Now the loadPuzzles promise will be chained correctly
-  })
-  .then(function() {
+})
+.then(function() {
     document.body.style.display = "unset";
-  });
+});
 
 function displayPuzzle() {
     document.getElementById('submitted-left').innerHTML = "";
     document.getElementById('submitted-right').innerHTML = "";
     document.getElementById('answer-box').innerHTML = "<input type='text' id='answer'></input>";
-    activate_listeners();
+
 
     if (currPuzzle == puzzles.length) {
         document.getElementById('next-button').disabled = true;
@@ -69,11 +70,15 @@ function displayPuzzle() {
         document.getElementById('easy-button').disabled = false;
     }
 
-    document.getElementById('left-word').innerText = puzzles.at(currPuzzle - 1)[currDifficulty]["left"];
-    document.getElementById('right-word').innerText = puzzles.at(currPuzzle  - 1)[currDifficulty]["right"];
+    const pathLength = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length;
+    const leftWord = puzzles.at(currPuzzle - 1)[currDifficulty]["left"];
+    const rightWord = puzzles.at(currPuzzle  - 1)[currDifficulty]["right"];
+
+    document.getElementById('left-word').innerText = leftWord;
+    document.getElementById('right-word').innerText = rightWord;
     document.getElementById('puzzle-header').innerText = "Puzzle #" + puzzles.at(currPuzzle  - 1)["number"];
 
-    updateDistance();
+    document.getElementById('distance-header').innerHTML = pathLength > 1 ? "There are " + String(pathLength) + " words between <i>" + leftWord + "</i> and <i>" + rightWord + "</i>" : "There is " + String(pathLength) + " word between <i>" + leftWord + "</i> and <i>" + rightWord + "</i>";
 } 
 
 function activate_listeners() {
