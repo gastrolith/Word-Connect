@@ -70,7 +70,7 @@ function displayPuzzle() {
         document.getElementById('easy-button').disabled = false;
     }
 
-    const pathLength = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length;
+    const pathLength = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length - 2;
     const leftWord = puzzles.at(currPuzzle - 1)[currDifficulty]["left"];
     const rightWord = puzzles.at(currPuzzle  - 1)[currDifficulty]["right"];
 
