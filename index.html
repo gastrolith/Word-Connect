@@ -6,53 +6,58 @@
     <link rel="stylesheet" href="styling.css">
 </head>
 <body>
-    <h1>Word Connect</h1>
-    <h2 id="puzzle-header">Puzzle #</h2>
-    <div id="game-elements">
-        <div id="distance-holder">
-            <h3 id="distance-header"></h3>
-        </div>
-        <div id="word-chain">
-            <div id="left-word-box" class="word-box">
-                <p id="left-word"></p>    
-            </div>
-            <div id="submitted-left"></div>
-            <div id="answer-box" class="word-box">
-                <input type="text" id="answer"></input>
-            </div>
-            <div id="submitted-right"></div>
-            <div id="right-word-box" class="word-box">
-                <p id="right-word"></p>
-            </div>
-        </div>
-        <div id="submit-button-block"> 
-            <button id="submit-button" name="submit-button" onclick="submitWord()" type="button">Submit</button>
-        </div>
+    <div id="loading-area">
+        <p>Loading...</p>
     </div>
-    <div id="hint-block">
-        <div id="suggestion-block">
-            <input type="checkbox" id="distance-box" name="distance" checked />
-            <label for="distance">Display smallest number of words needed to bridge the gap</label>
+    <div id="main">
+        <h1>Word Connect</h1>
+        <h2 id="puzzle-header">Puzzle #</h2>
+        <div id="game-elements">
+            <div id="distance-holder">
+                <h3 id="distance-header"></h3>
+            </div>
+            <div id="word-chain">
+                <div id="left-word-box" class="word-box">
+                    <p id="left-word"></p>    
+                </div>
+                <div id="submitted-left"></div>
+                <div id="answer-box" class="word-box">
+                    <input type="text" id="answer"></input>
+                </div>
+                <div id="submitted-right"></div>
+                <div id="right-word-box" class="word-box">
+                    <p id="right-word"></p>
+                </div>
+            </div>
+            <div id="submit-button-block"> 
+                <button id="submit-button" name="submit-button" onclick="submitWord()" type="button">Submit</button>
+            </div>
         </div>
-        <div id="reveal-block">
-            
-            <button id="reveal-next-left-button" name="reveal-next-left-button" onclick="revealWord('left')" type="button">Reveal Next Left Word</button>
-            <button id="reveal-next-right-button" name="reveal-next-right-button" onclick="revealWord('right')" type="button">Reveal Next Right Word</button>
+        <div id="hint-block">
+            <div id="suggestion-block">
+                <input type="checkbox" id="distance-box" name="distance" checked />
+                <label for="distance">Display smallest number of words needed to bridge the gap</label>
+            </div>
+            <div id="reveal-block">
+                
+                <button id="reveal-next-left-button" name="reveal-next-left-button" onclick="revealWord('left')" type="button">Reveal Next Left Word</button>
+                <button id="reveal-next-right-button" name="reveal-next-right-button" onclick="revealWord('right')" type="button">Reveal Next Right Word</button>
+            </div>
         </div>
-    </div>
-    <div id="puzzle-selector-block">
-        <div id="number-block">
-            <button id="previous-button" name="previous-button" onclick="changePuzzle(-1)" type="button">Previous Puzzle</button>
-            <button id="next-button" name="next-button" onclick="changePuzzle(1)" type="button">Next Puzzle</button>
-        </div>
-        <div id="difficulty-block">
-            <button id="easy-button" name="easy-button" onclick="changeDifficulty('easy')" type="button">Easy</button>
-            <button id="medium-button" name="medium-button" onclick="changeDifficulty('medium')" type="button">Medium</button>
-            <button id="hard-button" name="hard-button" onclick="changeDifficulty('hard')" type="button">Hard</button>
+        <div id="puzzle-selector-block">
+            <div id="number-block">
+                <button id="previous-button" name="previous-button" onclick="changePuzzle(-1)" type="button">Previous Puzzle</button>
+                <button id="next-button" name="next-button" onclick="changePuzzle(1)" type="button">Next Puzzle</button>
+            </div>
+            <div id="difficulty-block">
+                <button id="easy-button" name="easy-button" onclick="changeDifficulty('easy')" type="button">Easy</button>
+                <button id="medium-button" name="medium-button" onclick="changeDifficulty('medium')" type="button">Medium</button>
+                <button id="hard-button" name="hard-button" onclick="changeDifficulty('hard')" type="button">Hard</button>
+           </div>
         </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="page-functions.js"></script>
-<script>document.body.style.display = "none";</script>
+<script>document.getElementById('main').style.display = "none";</script>
 </html>

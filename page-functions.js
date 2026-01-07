@@ -32,17 +32,17 @@ function loadPuzzles() {
 
 loadGraph()
 .then(function() {
-    return loadPuzzles();  // Now the loadPuzzles promise will be chained correctly
+    return loadPuzzles(); 
 })
 .then(function() {
-    document.body.style.display = "unset";
+    document.getElementById('main').style.display = "unset";
+    document.getElementById('loading-area').style.display = "none";
 });
 
 function displayPuzzle() {
     document.getElementById('submitted-left').innerHTML = "";
     document.getElementById('submitted-right').innerHTML = "";
     document.getElementById('answer-box').innerHTML = "<input type='text' id='answer'></input>";
-
 
     if (currPuzzle == puzzles.length) {
         document.getElementById('next-button').disabled = true;
@@ -115,7 +115,7 @@ function submitWord(word=document.getElementById('answer').value) {
 
         const firstLeft = document.getElementById('left-word').innerText;
         const firstRight = document.getElementById('right-word').innerText;
-        const shortest = findPath(firstLeft, firstRight).length - 2;
+        const shortest = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length - 2;
         const length = numLeft + numRight + 1;
 
         if (shortest > 1) {
