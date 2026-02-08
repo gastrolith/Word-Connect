@@ -181,3 +181,42 @@ h1 {
 #difficulty-block button:hover {
   background-color: #455a64;
 }
+
+#site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-color: blue; /* matches your puzzle buttons */
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    justify-content: flex-start;
+}
+
+    /* Navigation layout */
+    #site-header nav {
+        display: flex;
+        gap: 20px;
+        margin-left: 20px; /* spacing from left edge */
+    }
+
+        /* Header links */
+        #site-header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+            /* Hover state */
+            #site-header nav a:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+
+/* Push page content down so it doesn’t hide under the header */
+body {
+    padding-top: 57px; /* header height + breathing room */
+}
