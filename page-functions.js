@@ -70,7 +70,7 @@ function displayPuzzle() {
         document.getElementById('easy-button').disabled = false;
     }
 
-    const pathLength = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length - 2;
+    const pathLength = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length;
     const leftWord = puzzles.at(currPuzzle - 1)[currDifficulty]["left"];
     const rightWord = puzzles.at(currPuzzle  - 1)[currDifficulty]["right"];
 
@@ -115,7 +115,7 @@ function submitWord(word=document.getElementById('answer').value) {
 
         const firstLeft = document.getElementById('left-word').innerText;
         const firstRight = document.getElementById('right-word').innerText;
-        const shortest = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length - 2;
+        const shortest = puzzles.at(currPuzzle - 1)[currDifficulty]["sample_chain"].length;
         const length = numLeft + numRight + 1;
 
         if (shortest > 1) {
