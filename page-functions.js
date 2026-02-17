@@ -181,6 +181,11 @@ function submitWord(word=document.getElementById('answer').value) {
 }
 
 function createPath(word, threshold=0.5) {
+    if (!(word in graph)) {
+        console.log("Sorry, that word is not in the graph.");
+        return;
+    }
+
     const queue = [[[word], 0, 1]];
     //const queue = graph[word].map(neighbour => [[word, neighbour[0]], calcLevenshtein(word, neighbour), neighbour[1]]);
     //queue.sort((a, b) => a[1] - b[1]);
@@ -218,6 +223,11 @@ function createPath(word, threshold=0.5) {
 }
 
 function findPath(start, end, exclusion=[]) {
+    if (!(start in graph) || !(end in graph)) {
+        console.log("Sorry, one of those words is not in the graph.");
+        return;
+    }
+
     const queue = [[start]];
     //const queue = graph[word].map(neighbour => [[word, neighbour[0]], calcLevenshtein(word, neighbour), neighbour[1]]);
     //queue.sort((a, b) => a[1] - b[1]);
@@ -244,6 +254,11 @@ function findPath(start, end, exclusion=[]) {
 }
 
 function createPaths(word, length = 1, exclusion=[]) {
+    if (!(word in graph)) {
+        console.log("Sorry, that word is not in the graph.");
+        return;
+    }
+
     const queue = [[word]];
     //const queue = graph[word].map(neighbour => [[word, neighbour[0]], calcLevenshtein(word, neighbour), neighbour[1]]);
     //queue.sort((a, b) => a[1] - b[1]);
